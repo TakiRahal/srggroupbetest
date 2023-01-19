@@ -1,0 +1,734 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-1">
+        <createTable tableName="sg_news_letter">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_news_letter_pkey"/>
+            </column>
+            <column name="email" type="VARCHAR(40)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-2">
+        <createTable tableName="sg_user_one_signal">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_user_one_signal_pkey"/>
+            </column>
+            <column name="id_one_signal" type="VARCHAR(50)"/>
+            <column name="register_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="source_connected_device" type="VARCHAR(30)"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-3">
+        <createTable tableName="batch_job_instance">
+            <column name="job_instance_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="batch_job_instance_pkey"/>
+            </column>
+            <column name="version" type="BIGINT"/>
+            <column name="job_name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="job_key" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-4">
+        <createTable tableName="sg_user">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_user_pkey"/>
+            </column>
+            <column name="activated_account" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="activation_key" type="VARCHAR(50)"/>
+            <column name="blocked" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(40)"/>
+            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="image_url" type="TEXT"/>
+            <column name="lang_key" type="VARCHAR(50)"/>
+            <column name="last_name" type="VARCHAR(50)"/>
+            <column name="link_profile_facebook" type="VARCHAR(400)"/>
+            <column name="password" type="VARCHAR(100)"/>
+            <column name="phone" type="VARCHAR(20)"/>
+            <column name="register_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="reset_key" type="VARCHAR(50)"/>
+            <column name="source_connected_device" type="VARCHAR(30)"/>
+            <column name="username" type="VARCHAR(40)"/>
+            <column name="address_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-5">
+        <addUniqueConstraint columnNames="email" constraintName="uk_hyfjqhx03bvv8rqhtfq0jn7aw" tableName="sg_news_letter"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-6">
+        <addUniqueConstraint columnNames="job_name, job_key" constraintName="job_inst_un" tableName="batch_job_instance"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-7">
+        <addUniqueConstraint columnNames="email" constraintName="ukcm3l1xi1rpfnl4myxfcja44cd" tableName="sg_user"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-8">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="batch_job_execution_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-9">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="batch_job_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-10">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="batch_step_execution_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-11">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_generator" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-12">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_about_us" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-13">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_address" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-14">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_authority" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-15">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_cart" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-16">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_category" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-17">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_comment_offer" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-18">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_contact_us" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-19">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_conversation" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-20">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_description_offer" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-21">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_faq" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-22">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_favorite_user" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-23">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_message" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-24">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_offer" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-25">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_offer_images" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-26">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_order" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-27">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_permission" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-28">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_post_home_feature" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-29">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_rental" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-30">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_report_comment_offer" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-31">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_report_offer" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-32">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_report_user" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-33">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_sub_category" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-34">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_top_home_slides_images" startValue="1"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-35">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_user" startValue="2"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-36">
+        <createTable tableName="batch_job_execution">
+            <column name="job_execution_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="batch_job_execution_pkey"/>
+            </column>
+            <column name="version" type="BIGINT"/>
+            <column name="job_instance_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_time" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_time" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="end_time" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="status" type="VARCHAR(10)"/>
+            <column name="exit_code" type="VARCHAR(2500)"/>
+            <column name="exit_message" type="VARCHAR(2500)"/>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="job_configuration_location" type="VARCHAR(2500)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-37">
+        <createTable tableName="batch_job_execution_context">
+            <column name="job_execution_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="batch_job_execution_context_pkey"/>
+            </column>
+            <column name="short_context" type="VARCHAR(2500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="serialized_context" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-38">
+        <createTable tableName="batch_job_execution_params">
+            <column name="job_execution_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type_cd" type="VARCHAR(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="key_name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="string_val" type="VARCHAR(250)"/>
+            <column name="date_val" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="long_val" type="BIGINT"/>
+            <column name="double_val" type="FLOAT8"/>
+            <column name="identifying" type="CHAR(1)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-39">
+        <createTable tableName="batch_step_execution">
+            <column name="step_execution_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="batch_step_execution_pkey"/>
+            </column>
+            <column name="version" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="step_name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="job_execution_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_time" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_time" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="status" type="VARCHAR(10)"/>
+            <column name="commit_count" type="BIGINT"/>
+            <column name="read_count" type="BIGINT"/>
+            <column name="filter_count" type="BIGINT"/>
+            <column name="write_count" type="BIGINT"/>
+            <column name="read_skip_count" type="BIGINT"/>
+            <column name="write_skip_count" type="BIGINT"/>
+            <column name="process_skip_count" type="BIGINT"/>
+            <column name="rollback_count" type="BIGINT"/>
+            <column name="exit_code" type="VARCHAR(2500)"/>
+            <column name="exit_message" type="VARCHAR(2500)"/>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-40">
+        <createTable tableName="batch_step_execution_context">
+            <column name="step_execution_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="batch_step_execution_context_pkey"/>
+            </column>
+            <column name="short_context" type="VARCHAR(2500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="serialized_context" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-41">
+        <createTable tableName="description_add_offer">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="description_add_offer_pkey"/>
+            </column>
+            <column name="description_ar" type="TEXT"/>
+            <column name="description_en" type="TEXT"/>
+            <column name="description_fr" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-42">
+        <createTable tableName="sg_about_us">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_about_us_pkey"/>
+            </column>
+            <column name="content_ar" type="TEXT"/>
+            <column name="content_en" type="TEXT"/>
+            <column name="content_fr" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-43">
+        <createTable tableName="sg_address">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_address_pkey"/>
+            </column>
+            <column name="admin_name" type="VARCHAR(255)"/>
+            <column name="capital" type="VARCHAR(255)"/>
+            <column name="city" type="VARCHAR(255)"/>
+            <column name="country" type="VARCHAR(255)"/>
+            <column name="iso_2" type="VARCHAR(255)"/>
+            <column name="lat" type="FLOAT8"/>
+            <column name="lng" type="FLOAT8"/>
+            <column name="population" type="VARCHAR(255)"/>
+            <column name="population_proper" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-44">
+        <createTable tableName="sg_advertising_per_month">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_advertising_per_month_pkey"/>
+            </column>
+            <column name="available" type="BOOLEAN"/>
+            <column name="end_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="module" type="INTEGER"/>
+            <column name="start_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="offer_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-45">
+        <createTable tableName="sg_authority">
+            <column name="id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_authority_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(100)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-46">
+        <createTable tableName="sg_authority_permissions">
+            <column name="authority_id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_authority_permissions_pkey"/>
+            </column>
+            <column name="permission_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_authority_permissions_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-47">
+        <createTable tableName="sg_cart">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_cart_pkey"/>
+            </column>
+            <column name="passed_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="quantity" type="INTEGER"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="total" type="FLOAT8"/>
+            <column name="sell_offer_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-48">
+        <createTable tableName="sg_category">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_category_pkey"/>
+            </column>
+            <column name="image_content" type="TEXT"/>
+            <column name="index" type="INTEGER"/>
+            <column name="title_ar" type="VARCHAR(255)"/>
+            <column name="title_en" type="VARCHAR(255)"/>
+            <column name="title_fr" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-49">
+        <createTable tableName="sg_comment_offer">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_comment_offer_pkey"/>
+            </column>
+            <column name="blocked_by_reported" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="content" type="TEXT"/>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="offer_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-50">
+        <createTable tableName="sg_contact_us">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_contact_us_pkey"/>
+            </column>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="message" type="TEXT"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="subject" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-51">
+        <createTable tableName="sg_conversation">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_conversation_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="receiver_user_id" type="BIGINT"/>
+            <column name="sender_user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-52">
+        <createTable tableName="sg_faq">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_faq_pkey"/>
+            </column>
+            <column name="question_ar" type="VARCHAR(255)"/>
+            <column name="question_en" type="VARCHAR(255)"/>
+            <column name="question_fr" type="VARCHAR(255)"/>
+            <column name="response_ar" type="TEXT"/>
+            <column name="response_en" type="TEXT"/>
+            <column name="response_fr" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-53">
+        <createTable tableName="sg_favorite_user">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_favorite_user_pkey"/>
+            </column>
+            <column name="favorite_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="current_user_id" type="BIGINT"/>
+            <column name="favorite_user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-54">
+        <createTable tableName="sg_message">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_message_pkey"/>
+            </column>
+            <column name="content" type="TEXT"/>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="is_read" type="BOOLEAN"/>
+            <column name="conversation_id" type="BIGINT"/>
+            <column name="receiver_user_id" type="BIGINT"/>
+            <column name="sender_user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-55">
+        <createTable tableName="sg_notification">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_notification_pkey"/>
+            </column>
+            <column name="content" type="TEXT"/>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="is_read" type="BOOLEAN"/>
+            <column name="module" type="VARCHAR(255)"/>
+            <column name="offer_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-56">
+        <createTable tableName="sg_offer">
+            <column name="type_offer" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_offer_pkey"/>
+            </column>
+            <column name="available" type="BOOLEAN"/>
+            <column name="blocked_by_reported" type="BOOLEAN"/>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="description" type="TEXT"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="amount" type="FLOAT8"/>
+            <column name="type_find_offer" type="VARCHAR(255)"/>
+            <column name="end_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="start_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="type_period_rent" type="VARCHAR(255)"/>
+            <column name="sell_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="shipping_cost" type="FLOAT8"/>
+            <column name="type_contact_client" type="VARCHAR(255)"/>
+            <column name="address_id" type="BIGINT"/>
+            <column name="category_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-57">
+        <createTable tableName="sg_offer_images">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_offer_images_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="path" type="VARCHAR(255)"/>
+            <column name="offer_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-58">
+        <createTable tableName="sg_order">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_order_pkey"/>
+            </column>
+            <column name="number_of_products" type="INTEGER"/>
+            <column name="passed_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="payment_mode" type="VARCHAR(255)"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="tax_delivery" type="FLOAT8"/>
+            <column name="total_carts" type="FLOAT8"/>
+            <column name="total_global_carts" type="FLOAT8"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-59">
+        <createTable tableName="sg_order_cart">
+            <column name="order_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_order_cart_pkey"/>
+            </column>
+            <column name="cart_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_order_cart_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-60">
+        <createTable tableName="sg_organigramme">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_organigramme_pkey"/>
+            </column>
+            <column name="content" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-61">
+        <createTable tableName="sg_permission">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_permission_pkey"/>
+            </column>
+            <column name="description" type="TEXT"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="path_api" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-62">
+        <createTable tableName="sg_post_home_feature">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_post_home_feature_pkey"/>
+            </column>
+            <column name="description_ar" type="TEXT"/>
+            <column name="description_en" type="TEXT"/>
+            <column name="description_fr" type="TEXT"/>
+            <column name="image" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-63">
+        <createTable tableName="sg_rent_request">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_rent_request_pkey"/>
+            </column>
+            <column name="image_signature_received" type="TEXT"/>
+            <column name="send_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="receiver_user_id" type="BIGINT"/>
+            <column name="rent_offer_id" type="BIGINT"/>
+            <column name="sender_user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-64">
+        <createTable tableName="sg_report_comment_offer">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_report_comment_offer_pkey"/>
+            </column>
+            <column name="comment_offer_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-65">
+        <createTable tableName="sg_report_offer">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_report_offer_pkey"/>
+            </column>
+            <column name="offer_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-66">
+        <createTable tableName="sg_report_probleme">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_report_probleme_pkey"/>
+            </column>
+            <column name="content" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-67">
+        <createTable tableName="sg_report_user">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_report_user_pkey"/>
+            </column>
+            <column name="reporting_users" type="TEXT"/>
+            <column name="reported_user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-68">
+        <createTable tableName="sg_sub_category">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_sub_category_pkey"/>
+            </column>
+            <column name="title_ar" type="VARCHAR(255)"/>
+            <column name="title_en" type="VARCHAR(255)"/>
+            <column name="title_fr" type="VARCHAR(255)"/>
+            <column name="category_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-69">
+        <createTable tableName="sg_top_home_slides_image">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_top_home_slides_image_pkey"/>
+            </column>
+            <column name="description_ar" type="TEXT"/>
+            <column name="description_en" type="TEXT"/>
+            <column name="description_fr" type="TEXT"/>
+            <column name="image_desktop" type="TEXT"/>
+            <column name="image_mobile" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-70">
+        <createTable tableName="test_table">
+            <column name="test_id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="test_table_pkey"/>
+            </column>
+            <column name="test_column" type="VARCHAR"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-71">
+        <createTable tableName="test_table0000">
+            <column name="test_id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="test_table0000_pkey"/>
+            </column>
+            <column name="test_column" type="VARCHAR"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-72">
+        <createTable tableName="user_authorities">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_authorities_pkey"/>
+            </column>
+            <column name="authority_id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_authorities_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-73">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="sg_offer" constraintName="fk1qfkkmk5rqgmhvg4syc8h40n7" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_category" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-74">
+        <addForeignKeyConstraint baseColumnNames="offer_id" baseTableName="sg_advertising_per_month" constraintName="fk1qxt99o4jl4y3sosbex42f8va" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_offer" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-75">
+        <addForeignKeyConstraint baseColumnNames="offer_id" baseTableName="sg_report_offer" constraintName="fk1u4ovrpyp3dbnelub6y2f5gwj" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_offer" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-76">
+        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="sg_order_cart" constraintName="fk2oe4gvxt9lkxd7ntvi2hqdlaf" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_order" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-77">
+        <addForeignKeyConstraint baseColumnNames="authority_id" baseTableName="user_authorities" constraintName="fk2pe9lga7hoa7vqf3jmxnck1s" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_authority" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-78">
+        <addForeignKeyConstraint baseColumnNames="rent_offer_id" baseTableName="sg_rent_request" constraintName="fk2rcw8ifr3qmh2djlqllo9oosv" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_offer" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-79">
+        <addForeignKeyConstraint baseColumnNames="sell_offer_id" baseTableName="sg_cart" constraintName="fk46poulla4a4d1yxrr5b1k6xyq" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_offer" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-80">
+        <addForeignKeyConstraint baseColumnNames="conversation_id" baseTableName="sg_message" constraintName="fk5kns2xdwdaomr2lqom7mq0rcp" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_conversation" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-81">
+        <addForeignKeyConstraint baseColumnNames="cart_id" baseTableName="sg_order_cart" constraintName="fk5pqstgpqd9b0eabnereo0nmom" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_cart" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-82">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="sg_comment_offer" constraintName="fk62ih5djsbe6sp09vix593o3o7" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-83">
+        <addForeignKeyConstraint baseColumnNames="receiver_user_id" baseTableName="sg_conversation" constraintName="fk6hwjifcopm10a10dchlp6vvyx" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-84">
+        <addForeignKeyConstraint baseColumnNames="receiver_user_id" baseTableName="sg_message" constraintName="fk77j6c0iuxvrak73fw4v8970aw" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-85">
+        <addForeignKeyConstraint baseColumnNames="offer_id" baseTableName="sg_notification" constraintName="fk9qgkyq0hegs4yc96ept0hkdt8" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_offer" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-86">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_authorities" constraintName="fkbcdi5kf9gvcgvppy3jadq94jr" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-87">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="sg_cart" constraintName="fkdhyk2qh0g1k9bwbxr92kxq30s" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-88">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="sg_notification" constraintName="fkemlmybtd879fwymjyuat26vu4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-89">
+        <addForeignKeyConstraint baseColumnNames="offer_id" baseTableName="sg_comment_offer" constraintName="fkfj4n4na2xckrb07h1k4bbagi1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_offer" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-90">
+        <addForeignKeyConstraint baseColumnNames="offer_id" baseTableName="sg_offer_images" constraintName="fkgk21sgsh1xosl1yx9wdhngqhg" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_offer" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-91">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="sg_user_one_signal" constraintName="fkh4cpbk39urti4x0watjcp5dii" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-92">
+        <addForeignKeyConstraint baseColumnNames="sender_user_id" baseTableName="sg_conversation" constraintName="fkhen6y8eda0lgc4dgyycx8q3iw" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-93">
+        <addForeignKeyConstraint baseColumnNames="current_user_id" baseTableName="sg_favorite_user" constraintName="fkhu9o175f00jaby05ablybnqs1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-94">
+        <addForeignKeyConstraint baseColumnNames="authority_id" baseTableName="sg_authority_permissions" constraintName="fkhv4g73ph2vb6fmwm3sgo1lrsy" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_authority" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-95">
+        <addForeignKeyConstraint baseColumnNames="comment_offer_id" baseTableName="sg_report_comment_offer" constraintName="fkinxvqx77w526poteqhhh2qcke" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_comment_offer" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-96">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="sg_report_offer" constraintName="fkklrn6daadhvd8gjqpp7ksdhhs" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-97">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="sg_offer" constraintName="fklgw7vkgbcuvncoqj57hefqb8x" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-98">
+        <addForeignKeyConstraint baseColumnNames="favorite_user_id" baseTableName="sg_favorite_user" constraintName="fklnpwutv7mqt643jsn0orm0rsw" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-99">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="sg_order" constraintName="fklyn8h5yeom2vuo2gweyxio18e" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-100">
+        <addForeignKeyConstraint baseColumnNames="address_id" baseTableName="sg_offer" constraintName="fkng060v1fpt0fp8ey6hnjrjk95" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_address" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-101">
+        <addForeignKeyConstraint baseColumnNames="sender_user_id" baseTableName="sg_rent_request" constraintName="fkpoj5k1verosi6d6208p6yg59m" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-102">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="sg_sub_category" constraintName="fkqbpdhsawj07ca5dxkxx5rxdgf" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_category" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-103">
+        <addForeignKeyConstraint baseColumnNames="reported_user_id" baseTableName="sg_report_user" constraintName="fkr057fpib8abp7qktyg7vtv6xk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-104">
+        <addForeignKeyConstraint baseColumnNames="receiver_user_id" baseTableName="sg_rent_request" constraintName="fkr3966m48wc0qqg7j70isdy81b" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-105">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="sg_report_comment_offer" constraintName="fks395kq8mxp6gmhv66f1pfua3o" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-106">
+        <addForeignKeyConstraint baseColumnNames="permission_id" baseTableName="sg_authority_permissions" constraintName="fksk7sqrh8nju03bb2ahd16kjfp" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_permission" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-107">
+        <addForeignKeyConstraint baseColumnNames="address_id" baseTableName="sg_user" constraintName="fkt56gk57mwk0ogexobetmfxavu" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_address" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-108">
+        <addForeignKeyConstraint baseColumnNames="sender_user_id" baseTableName="sg_message" constraintName="fkwgqvn5wvwtncf1vucvdouji6" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sg_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-109">
+        <addForeignKeyConstraint baseColumnNames="job_execution_id" baseTableName="batch_job_execution_context" constraintName="job_exec_ctx_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="job_execution_id" referencedTableName="batch_job_execution" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-110">
+        <addForeignKeyConstraint baseColumnNames="job_execution_id" baseTableName="batch_job_execution_params" constraintName="job_exec_params_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="job_execution_id" referencedTableName="batch_job_execution" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-111">
+        <addForeignKeyConstraint baseColumnNames="job_execution_id" baseTableName="batch_step_execution" constraintName="job_exec_step_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="job_execution_id" referencedTableName="batch_job_execution" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-112">
+        <addForeignKeyConstraint baseColumnNames="job_instance_id" baseTableName="batch_job_execution" constraintName="job_inst_exec_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="job_instance_id" referencedTableName="batch_job_instance" validate="true"/>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1671997292925-113">
+        <addForeignKeyConstraint baseColumnNames="step_execution_id" baseTableName="batch_step_execution_context" constraintName="step_exec_ctx_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="step_execution_id" referencedTableName="batch_step_execution" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

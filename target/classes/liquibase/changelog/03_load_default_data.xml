@@ -1,0 +1,41 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1672235714999-118">
+        <loadData
+                file="liquibase/data/user.csv"
+                separator=";"
+                tableName="sg_user"
+                usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="activated" type="boolean"/>
+            <column name="register_date" type="timestamp"/>
+        </loadData>
+    </changeSet>
+
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1672235714999-119">
+        <loadData
+                file="liquibase/data/authority.csv"
+                separator=";"
+                tableName="sg_authority"
+                usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+        </loadData>
+    </changeSet>
+
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1672235714999-120">
+        <loadData
+                file="liquibase/data/user_authorities.csv"
+                separator=";"
+                tableName="user_authorities"
+                usePreparedStatements="true">
+            <column name="user_id" type="numeric"/>
+            <column name="authority_id" type="numeric"/>
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

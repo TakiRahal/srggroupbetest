@@ -1,0 +1,17 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1672235714999-116">
+        <createTable tableName="sg_cgu">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="sg_cgu_pkey"/>
+            </column>
+            <column name="modify_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="content_ar" type="TEXT"/>
+            <column name="content_en" type="TEXT"/>
+            <column name="content_fr" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Taki-eddine.RAHAL (generated)" id="1672235714999-117">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="sequence_name_cgu" startValue="1"/>
+    </changeSet>
+</databaseChangeLog>

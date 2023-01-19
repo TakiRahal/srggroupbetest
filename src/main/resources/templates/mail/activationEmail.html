@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}" lang="en">
+  <head>
+    <title>SrfGroup activation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" th:href="@{|${baseUrl}/favicon.ico|}" />
+  </head>
+  <body>
+
+    <p th:text="#{email.activation.greeting(${user.username})}">Dear</p>
+
+    <div th:switch="${withLink}">
+
+      <div th:case="true">
+        <p th:text="#{email.activation.text1}">Your SrfGroup account has been created, please click on the URL below to activate it:</p>
+        <p>
+          <a th:with="url=(@{|${baseUrl}/activation-account?key=${user.activationKey}|})"
+             th:href="${url}" th:text="${url}">
+            Activation link
+          </a>
+        </p>
+      </div>
+
+      <div th:case="false">
+        <p th:text="#{email.activation.text1}">
+          Your SrfGroup account has been created, your activatation code:
+        </p>
+        <span th:text="${user.activationKey}">Regards, </span>
+      </div>
+
+    </div>
+
+    <p>
+      <span th:text="#{email.activation.text2}">Regards, </span>
+      <br />
+      <em th:text="#{email.signature}">SrfGroup.</em>
+    </p>
+  </body>
+</html>
